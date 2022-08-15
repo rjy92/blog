@@ -1,0 +1,259 @@
+@import './variables.scss';
+@import './mixin.scss';
+@import './transition.scss';
+@import './common.scss';
+
+body {
+    height: 100%;
+    min-width: 900px;
+    font-size: 14px;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    // font-family: PingFang SC,Helvetica Neue,Helvetica,  Hiragino Sans GB, Microsoft YaHei, Arial, sans-serif;
+    font-family: -apple-system,BlinkMacSystemFont,Helvetica Neue,Helvetica,Arial,PingFang SC,Hiragino Sans GB,Microsoft Yahei,STHeiti,SimSun,sans-serif;
+  }
+  
+  .iconSvg{
+      /*将icon大小设置和字体大小一致，后续在通过svg-icon 使用icon的时候，可直接设置图标的font-size即可控制图标大小 */
+      width: 1em;
+      height: 1em;
+      vertical-align: -0.15em; /* 因icon大小被设置为和字体大小一致，而span等标签的下边缘会和字体的基线对齐，故需设置一个往下的偏移比例，来纠正视觉上的未对齐效果 */
+      fill: currentColor; /* 定义元素的颜色，currentColor是一个变量，这个变量的值就表示当前元素的color值，如果当前元素未设置color值，则从父元素继承 */
+      overflow: hidden;
+  }
+  // 字体继承
+  button,
+  input,
+  optgroup,
+  select,
+  textarea{
+    font-family: inherit;
+  }
+  label {
+    font-weight: 700;
+  }
+  
+  html {
+    height: 100%;
+    box-sizing: border-box;
+  }
+  body{
+    box-sizing: border-box;
+  }
+  #app {
+    height: 100%;
+  }
+  *,
+  *:before,
+  *:after {
+    padding: 0;
+    margin: 0;
+    box-sizing: inherit;
+  }
+  
+  a:focus,
+  a:active {
+    outline: none;
+  }
+  
+  a,
+  a:focus,
+  a:hover {
+    cursor: pointer;
+    color: inherit;
+    text-decoration: none;
+  }
+  
+  div:focus {
+    outline: none;
+  }
+  
+  .clearfix {
+    &:after {
+      visibility: hidden;
+      display: block;
+      font-size: 0;
+      content: " ";
+      clear: both;
+      height: 0;
+    }
+  }
+  
+  // main-container global css
+  .app-container {
+    padding: 20px;
+  }
+  .fiexd-bottom{
+    width: 100%;
+    position: fixed;
+    border-top: 1px solid #ccc;
+    box-shadow: 10px 10px 15px #ccc(0,0,0,0.9);
+    text-align: center;
+    left: #{$sideBarWidth};
+    padding-right: #{$sideBarWidth};
+    bottom: 0;
+    margin-bottom: 0;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    background: #fff;
+    z-index: 100;
+    transition: all .2s linear;
+    .totalMessage{
+        position: absolute;
+      top:10px;
+      left: 20px;
+      height: 30px;
+      line-height: 30px;
+      font-size: 16px;
+      color: #666;
+      span{
+        color: #125CFB;
+      }
+    }
+  }
+  #app .hideSidebar .main-container{
+    & .fiexd-bottom{
+      left: 54px;
+      width: calc(100vw - 54px);
+      transition: all .2s linear;
+    }
+  }
+  .inline{
+    display: inline-block;
+  }
+  .clear{
+    &:after{
+        display: block;
+        content: "";
+        clear: both;
+    }
+  }
+  .float-left{
+    float: left;
+  }
+  .float-right{
+    float: right;
+  }
+  .ellipsis{
+    overflow: hidden;
+    text-overflow:ellipsis;
+    white-space: nowrap;
+  }
+  .ellipsis-2{
+    text-overflow: -o-ellipsis-lastline;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    -webkit-box-orient: vertical;
+  }
+  .ellipsis-3{
+    text-overflow: -o-ellipsis-lastline;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
+    -webkit-box-orient: vertical;
+  }
+  .el-input__inner{
+    border: 1px solid #DCDCDC;
+  }
+  .link-active{
+    color: #125CFB;
+  }
+  .pointer{
+    cursor: pointer;
+  }
+  // 自定义每列点4.8格
+  @media only screen and (min-width:768px) {
+      .el-col-sm-4-8 {width:20%;}
+      .el-col-sm-offset-4-8 {
+          margin-left: 20%;
+      }
+      .el-col-sm-pull-4-8 {
+          position: relative;
+          right: 20%;
+      }
+      .el-col-sm-push-4-8 {
+          position: relative;
+          left: 20%;
+      }
+  }
+  @media only screen and (min-width:992px) {
+      .el-col-md-4-8 {
+          width: 20%;
+      }
+      .el-col-md-offset-4-8 {
+          margin-left: 20%;
+      }
+      .el-col-md-pull-4-8 {
+          position: relative;
+          right: 20%;
+      }
+      .el-col-md-push-4-8 {
+          position: relative;
+          left: 20%;
+      }
+  }
+  @media only screen and (min-width:1200px) {
+      .el-col-lg-4-8 {
+          width: 20%;
+      }
+      .el-col-lg-offset-4-8 {
+          margin-left: 20%;
+      }
+      .el-col-lg-pull-4-8 {
+          position: relative;
+          right: 20%;
+      }
+      .el-col-lg-push-4-8 {
+          position: relative;
+          left: 20%;
+      }
+  }
+  @media only screen and (min-width:1920px) {
+      .el-col-xl-4-8 {
+          width: 20%;
+      }
+      .el-col-xl-offset-4-8 {
+          margin-left: 20%;
+      }
+      .el-col-xl-pull-4-8 {
+          position: relative;
+          right: 20%;
+      }
+      .el-col-xl-push-4-8 {
+          position: relative;
+          left: 20%;
+      }
+  }
+  .html-area-html{
+    line-height: initial;
+    *{
+      white-space: break-spaces;
+    }
+  }
+  
+  
+  .el-dialog__headerbtn{
+      line-height: 0;
+  }
+  
+  .nopadding{
+    padding: 0!important;
+  }
+  .mgb0{
+    margin-bottom: 0;
+  }
+  .pdb4{
+    padding-bottom: 4px;
+  }
+  .pdb0{
+    padding-bottom: 0;
+  }
+  .nowrap{
+    white-space: nowrap;
+  }
