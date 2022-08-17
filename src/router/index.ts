@@ -1,5 +1,4 @@
 import { createRouter, RouteRecordRaw, createWebHashHistory } from 'vue-router'
-import loginRouter from './modules/login'
 const routes: RouteRecordRaw[] = [
     {
         path: '/',
@@ -12,8 +11,7 @@ const routes: RouteRecordRaw[] = [
     {
         path: '/404',
         component: () => import('@/views/404.vue')
-    },
-    loginRouter
+    }
 ]
 
 const router = createRouter({

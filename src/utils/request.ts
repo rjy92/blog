@@ -1,5 +1,5 @@
 import axios, { AxiosRequestConfig } from 'axios'
-import router from '@/router/'
+// import router from '@/router/'
 const request = axios.create({
     baseURL: import.meta.env.VITE_API_BASEURL
 })
@@ -18,9 +18,9 @@ request.interceptors.request.use(
 // 响应拦截器
 request.interceptors.response.use(
     response => {
-        router.push({
-            path: 'login'
-        })
+        // router.push({
+        //     path: 'login'
+        // })
 
         const status = response.data.status
 

@@ -6,6 +6,9 @@ import elementPlus from './plugins/element-plus'
 // 加载全局样式
 import './styles/index.scss'
 
+import 'virtual:windi.css'
+import 'virtual:windi-devtools'
+
 // 引入字体图标文件
 import '@/assets/icons/iconfont/iconfont.css' // global css
 import '@/assets/icons/iconfont/iconfont.js'

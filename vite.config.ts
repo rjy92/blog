@@ -5,11 +5,13 @@ import vueJsx from '@vitejs/plugin-vue-jsx'
 // 注意：在 ts 模块中加载 node 核心模块需要安装 node 的类型补充模块：npm i -D @types/node
 import path from 'path'
 import vitePluginSvgIcons from 'vite-plugin-svg-icons'
+import WindiCSS from 'vite-plugin-windicss'
 
 // https://vitejs.dev/config/
 export default defineConfig({
     plugins: [
         vue(),
+        WindiCSS(),
         // 配置svg图标
         vitePluginSvgIcons({
             // 配置路劲在你的src里的svg存放文件
